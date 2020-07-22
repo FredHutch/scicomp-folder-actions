@@ -68,7 +68,7 @@ def main(args):
             duration=3,
             threaded=True) 
    
-    test = ssh_exec_gss(['server1.domain.org'], ['srun hostname'])
+    test = ssh_exec_gss([args.host], ['srun hostname'])
     for t,std in test.items():
         easygui.codebox(' Output of command "%s":' % t,'Show Slurm Output',"\n".join(std[0].readlines()))
         #for line in std[0].readlines():
@@ -354,11 +354,11 @@ def parse_arguments():
     """
     Gather command-line arguments.
     """
-    parser = argparse.ArgumentParser(prog='SwiftClientGUI.py',
+    parser = argparse.ArgumentParser(prog='sruntest',
         description='get email addresses ')
-    parser.add_argument( '--folder', '-f', dest='folder',
+    parser.add_argument( '--host', '-s', dest='host',
         action='store',
-        help='a folder on a posix file system ',
+        help='a hostname to connect to',
         default='' )
                             
     args = parser.parse_args()
