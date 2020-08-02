@@ -1,0 +1,5 @@
+Dear {firstname},
+
+we have prepared something for you.
+
+Dirk
